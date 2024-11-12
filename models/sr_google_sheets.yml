@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: google_sheets
+    database: ALUMNO10_DEV_BRONZE_DB
+    schema: google_sheets
+
+    freshness:
+      warn_after: {count: 24, period: hour}
+      error_after: {count: 48, period: day}
+
+    tables:
+      - name: budget
+        columns:
+          - name: _row
+          - name: quantity
+          - name: product_id
+          - name: _fivetran_synced
